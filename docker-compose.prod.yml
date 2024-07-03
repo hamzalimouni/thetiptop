@@ -1,0 +1,18 @@
+version: '3'
+services:
+  thetiptop_front_prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.thetiptop_front_prod.rule=Host(`dsp5-archi-f23-15m-g4.fr`)"
+      - "traefik.http.services.thetiptop_front_prod.loadbalancer.server.port=80"
+      - "traefik.http.routers.thetiptop_front_prod.tls=true"
+      - "traefik.http.routers.thetiptop_front_prod.tls.certresolver=le"
+    networks:
+      - ci-cd-network
+      
+networks:
+  ci-cd-network:
+    external: true

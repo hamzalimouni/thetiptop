@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /login
+Sitemap: https://dsp5-archi-f23-15m-g4.fr/sitemap.xml
