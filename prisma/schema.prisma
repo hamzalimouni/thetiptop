@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Roles {
+  ROLE_USER
+  ROLE_EMPLOYE
+  ROLE_ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum InscriptionType {
+  GOOGLE
+  FACEBOOK
+  CLASSIC
+}
+
+model Users {
+  id              Int             @id @default(autoincrement())
+  firstname       String
+  lastname        String
+  email           String          @unique
+  phone           String?
+  gender          Gender?
+  role            Roles           @default(ROLE_USER)
+  password        String
+  birth           DateTime?
+  img             String?
+  typeInscription InscriptionType @default(CLASSIC)
+  status          Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  tickets         Tickets[]       @relation("AuthorTicket")
+  employeTickets  Tickets[]       @relation("EmployeTicket")
+  printerTicket   Tickets[]       @relation("PrinterTicket")
+}
+
+model Profits {
+  id                Int       @id @default(autoincrement())
+  libelle           String
+  img               String?
+  percentage        Int
+  quantityTotal     Int
+  quantityRemaining Int
+  status            Boolean   @default(true)
+  ticket            Tickets[]
+}
+
+model Tickets {
+  id          Int       @id @default(autoincrement())
+  code        String    @unique
+  author      Users?    @relation(name: "AuthorTicket", fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  authorId    Int?
+  employe     Users?    @relation(name: "EmployeTicket", fields: [employeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  employeId   Int?
+  profit      Profits   @relation(fields: [profitId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  profitId    Int
+  dateOfUse   DateTime?
+  given       Boolean   @default(false)
+  dateOfGiven DateTime?
+  status      Boolean   @default(true)
+  printer     Users?    @relation(name: "PrinterTicket", fields: [printerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  printerId   Int?
+  printed     Boolean   @default(false)
+  dateOfPrint DateTime?
+}
+
+model Config {
+  id             Int      @id @default(autoincrement())
+  dateOfStart    DateTime
+  dateOfEnd      DateTime
+  dateOfValidate DateTime
+  status         Boolean  @default(true)
+}
+
+model Newsletters {
+  id     Int     @id @default(autoincrement())
+  email  String  @unique
+  status Boolean @default(true)
+}
+
+model Blog {
+  id     Int     @id @default(autoincrement())
+  title  String
+  desc   String  @db.LongText
+  img    String?
+  status Boolean @default(true)
+}

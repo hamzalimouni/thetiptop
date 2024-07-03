@@ -1,0 +1,21 @@
+version: '3'
+services:
+    thetiptop_backend_uat:
+        build:
+            context: .
+            dockerfile: Dockerfile.uat
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.http.routers.thetiptop_backend_uat.rule=Host(`uatapi.dsp5-archi-f23-15m-g4.fr`)'
+            - 'traefik.http.services.thetiptop_backend_uat.loadbalancer.server.port=9009'
+            - 'traefik.http.routers.thetiptop_backend_uat.tls=true'
+            - 'traefik.http.routers.thetiptop_backend_uat.tls.certresolver=le'
+        networks:
+            - traefik-network
+            - mysql-network
+
+networks:
+    traefik-network:
+        external: true
+    mysql-network:
+        external: true

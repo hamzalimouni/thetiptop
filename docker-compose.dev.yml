@@ -1,0 +1,19 @@
+version: '3'
+services:
+    thetiptop_backend_dev:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.http.routers.thetiptop_backend_dev.rule=Host(`devapi.dsp5-archi-f23-15m-g4.fr`)'
+            - 'traefik.http.services.thetiptop_backend_dev.loadbalancer.server.port=9009'
+            - 'traefik.http.routers.thetiptop_backend_dev.tls=true'
+            - 'traefik.http.routers.thetiptop_backend_dev.tls.certresolver=le'
+        networks:
+            - ci-cd-network
+
+networks:
+    ci-cd-network:
+        driver: bridge
+        external: true
