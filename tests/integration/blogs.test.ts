@@ -55,7 +55,6 @@ describe('/api/blogs', () => {
     });
 });
 
-// // Test get Last Three Blogs
 // describe('GET /api/blogs/last-three', () => {
 //     it('should get last three blogs', async () => {
 //         const res = await request(app).get('/api/blogs');
