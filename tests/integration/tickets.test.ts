@@ -35,33 +35,6 @@ describe('GET /api/tickets/', () => {
     });
 });
 
-// describe('PUT /api/tickets/user/', () => {
-//     let token: string;
-
-//     it('should login and get token', async () => {
-//         const req = mockLoginRequest();
-//         const res = await request(app).post('/api/auth/login').send(req.bodyUser);
-//         expect(res.status).toBe(201);
-//         expect(res.body).toHaveProperty('token');
-//         token = res.body.token;
-//     });
-
-//     it('should return ticket not found', async () => {
-//         const id: number = 100;
-//         const authorId: number = 3;
-//         const res = await request(app).put('/api/tickets/user').send({ id, authorId }).set('token', `Bearer ${token}`);
-//         expect(res.status).toBe(404);
-//         expect(res.body).toHaveProperty('error', 'Ticket not found!');
-//     });
-
-//     it('should get updated ticket by user', async () => {
-//         const id: number = 1;
-//         const authorId: number = 3;
-//         const res = await request(app).put('/api/tickets/user').send({ id, authorId }).set('token', `Bearer ${token}`);
-//         expect(res.status).toBe(200);
-//     });
-// });
-
 // describe('PUT /api/tickets/employe/', () => {
 //     let token: string;
 
