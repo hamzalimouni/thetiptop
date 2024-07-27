@@ -34,30 +34,3 @@ describe('GET /api/tickets/', () => {
         expect(res.status).toBe(200);
     });
 });
-
-// describe('PUT /api/tickets/employe/', () => {
-//     let token: string;
-
-//     it('should login and get token ("ROLE_EMPLOYE")', async () => {
-//         const req = mockLoginRequest();
-//         const res = await request(app).post('/api/auth/login').send(req.bodyEmploye);
-//         expect(res.status).toBe(201);
-//         expect(res.body).toHaveProperty('token');
-//         token = res.body.token;
-//     });
-
-//     it('should return ticket not found', async () => {
-//         const id: number = 100;
-//         const employeId: number = 2;
-//         const res = await request(app).put('/api/tickets/employe').send({ id, employeId }).set('token', `Bearer ${token}`);
-//         expect(res.status).toBe(404);
-//         expect(res.body).toHaveProperty('error', 'Ticket not found!');
-//     });
-
-//     it('should get updated ticket by employe', async () => {
-//         const id: number = 1;
-//         const employeId: number = 2;
-//         const res = await request(app).put('/api/tickets/employe').send({ id, employeId }).set('token', `Bearer ${token}`);
-//         expect(res.status).toBe(200);
-//     });
-// });
