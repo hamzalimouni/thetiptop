@@ -89,7 +89,7 @@ describe('POST /api/auth/login', () => {
         expect(res.body).toHaveProperty('error');
     });
 
-    //Login Success
+    // Login Success
     it('should return user informations', async () => {
         const req = mockLoginRequest();
         const res = await request(app).post('/api/auth/login').send(req.body);
