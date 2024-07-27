@@ -1,3 +1,4 @@
+// tests/tickets.test.ts
 import request from 'supertest';
 import app from '../../src/app';
 import { mockLoginRequest } from '../globalData';
