@@ -55,12 +55,6 @@ describe('/api/blogs', () => {
     });
 });
 
-// describe('GET /api/blogs/last-three', () => {
-//     it('should get last three blogs', async () => {
-//         const res = await request(app).get('/api/blogs');
-//         expect(res.status).toBe(200);
-//     });
-// });
 
 // // Test get One blog
 // describe('GET /api/blogs/:id', () => {
