@@ -1,4 +1,4 @@
-// test newsletter.test.ts
+// tests/newsletter.test.ts
 import request from 'supertest';
 import app from '../../src/app';
 import { mockLoginRequest } from '../globalData';
