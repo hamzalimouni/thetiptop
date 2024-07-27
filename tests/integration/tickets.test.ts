@@ -5,6 +5,7 @@ import { mockLoginRequest } from '../globalData';
 
 let token: string;
 describe('GET /api/tickets/', () => {
+    // get Access token before request
     beforeAll(async () => {
         const req = mockLoginRequest();
         const res = await request(app).post('/api/auth/login').send(req.bodyAdmin);
