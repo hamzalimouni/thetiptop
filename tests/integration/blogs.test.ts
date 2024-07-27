@@ -55,8 +55,6 @@ describe('/api/blogs', () => {
     });
 });
 
-
-// // Test get One blog
 // describe('GET /api/blogs/:id', () => {
 //     const id: number = 1;
 //     it('should get one blog by id', async () => {
