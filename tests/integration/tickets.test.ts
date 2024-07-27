@@ -35,24 +35,6 @@ describe('GET /api/tickets/', () => {
     });
 });
 
-// describe('GET /api/tickets/user/:userId', () => {
-//     let token: string;
-
-//     it('should login and get token', async () => {
-//         const req = mockLoginRequest();
-//         const res = await request(app).post('/api/auth/login').send(req.bodyUser);
-//         expect(res.status).toBe(201);
-//         expect(res.body).toHaveProperty('token');
-//         token = res.body.token;
-//     });
-
-//     it('should get tickets by user', async () => {
-//         const userId: number = 3;
-//         const res = await request(app).get(`/api/tickets/user/${userId}`).set('token', `Bearer ${token}`);
-//         expect(res.status).toBe(200);
-//     });
-// });
-
 // describe('PUT /api/tickets/user/', () => {
 //     let token: string;
 
