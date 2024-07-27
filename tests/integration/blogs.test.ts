@@ -54,17 +54,3 @@ describe('/api/blogs', () => {
         await prisma.$executeRaw`ALTER TABLE Blog AUTO_INCREMENT = 1;`;
     });
 });
-
-// describe('GET /api/blogs/:id', () => {
-//     const id: number = 1;
-//     it('should get one blog by id', async () => {
-//         const res = await request(app).get(`/api/blogs/${id}`);
-//         expect(res.status).toBe(200);
-//     });
-//     const idNotFound: number = 100;
-//     it('should return blog not found', async () => {
-//         const res = await request(app).get(`/api/blogs/${idNotFound}`);
-//         expect(res.status).toBe(404);
-//         expect(res.body).toHaveProperty('error', 'blog not found!');
-//     });
-// });
