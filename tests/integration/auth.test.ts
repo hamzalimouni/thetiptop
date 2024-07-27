@@ -81,7 +81,7 @@ describe('POST /api/auth/login', () => {
         expect(res.body).toHaveProperty('error');
     });
 
-    //Login Failure Wrong credenials
+    // Login Failure Wrong credenials
     it('should return user wrong credentials', async () => {
         const req = mockLoginRequest();
         const res = await request(app).post('/api/auth/login').send(req.bodyWrongCredentials);
